@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ЗЕРКАЛО - Салон красоты в Севастополе</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600&display=swap');
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #0a0a0a;
+            color: #f5f5f5;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M30,10 L70,10 L90,50 L70,90 L30,90 L10,50 Z" fill="none" stroke="%23d4af37" stroke-width="0.5" opacity="0.2"/><path d="M15,25 L85,25 M15,75 L85,75" stroke="%23d4af37" stroke-width="0.3" opacity="0.2"/><path d="M40,40 L60,40 L55,60 L45,60 Z" fill="none" stroke="%23d4af37" stroke-width="0.5" opacity="0.2"/></svg>');
+        }
+        
+        .gold-text {
+            color: #d4af37;
+            text-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+        }
+        
+        .gold-border {
+            border-color: #d4af37;
+        }
+        
+        .gold-bg {
+            background-color: #d4af37;
+        }
+        
+        .header-glow {
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.7);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(212, 175, 55, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(212, 55, 55, 0);
+            }
+        }
+        
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            letter-spacing: 2px;
+        }
+        
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #d4af37;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <!-- Confetti effect -->
+    <div id="confetti-container"></div>
+    
+    <!-- Header -->
+    <header class="bg-black/90 backdrop-blur-sm sticky top-0 z-50 border-b gold-border">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <i class="fas fa-cut gold-text text-3xl mr-3"></i>
+                <h1 class="logo-text gold-text">ЗЕРКАЛО</h1>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="#services" class="gold-text hover:text-white transition">Услуги</a>
+                <a href="#cosmetics" class="gold-text hover:text-white transition">Косметика</a>
+                <a href="#about" class="gold-text hover:text-white transition">О нас</a>
+                <a href="#contacts" class="gold-text hover:text-white transition">Контакты</a>
+            </div>
+            <div class="md:hidden">
+                <button id="menu-btn" class="gold-text text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-black/95 py-4 px-4 border-t gold-border">
+            <div class="flex flex-col space-y-4">
+                <a href="#services" class="gold-text hover:text-white transition">Услуги</a>
+                <a href="#cosmetics" class="gold-text hover:text-white transition">Косметика</a>
+                <a href="#about" class="gold-text hover:text-white transition">О нас</a>
+                <a href="#contacts" class="gold-text hover:text-white transition">Контакты</a>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden py-20 md:py-32 px-4">
+        <div class="absolute inset-0 bg-black/70 z-0"></div>
+        <div class="container mx-auto relative z-10 text-center">
+            <h2 class="text-4xl md:text-6xl font-bold gold-text mb-6">Добро пожаловать в салон красоты</h2>
+            <h1 class="logo-text gold-text text-5xl md:text-8xl mb-8 header-glow inline-block px-6 py-3">ЗЕРКАЛО</h1>
+            <p class="text-xl md:text-2xl gold-text mb-10 max-w-3xl mx-auto">Ваше отражение в идеальном свете. Профессиональные услуги парикмахера, маникюра и педикюра в самом сердце Севастополя.</p>
+            <a href="tel:+79780917717" class="gold-bg hover:bg-yellow-600 text-black font-bold py-4 px-8 rounded-full text-lg inline-flex items-center pulse">
+                <i class="fas fa-phone-alt mr-2"></i> +7 (978) 091-77-17
+            </a>
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section id="services" class="py-16 px-4 bg-black/50">
+        <div class="container mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold gold-text text-center mb-12">Наши услуги</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Haircut Service -->
+                <div class="service-card bg-gray-900 rounded-lg overflow-hidden border gold-border transition duration-300">
+                    <div class="p-6">
+                        <div class="gold-text text-4xl mb-4">
+                            <i class="fas fa-cut"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold gold-text mb-3">Парикмахерские услуги</h3>
+                        <p class="text-gray-300 mb-4">Профессиональные стрижки, окрашивание, укладки и многое другое от мастера-универсала.</p>
+                        <a href="tel:+79780917717" class="gold-bg hover:bg-yellow-600 text-black font-bold py-2 px-6 rounded-full text-sm inline-flex items-center">
+                            Записаться <i class="fas fa-chevron-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Manicure Service -->
+                <div class="service-card bg-gray-900 rounded-lg overflow-hidden border gold-border transition duration-300">
+                    <div class="p-6">
+                        <div class="gold-text text-4xl mb-4">
+                            <i class="fas fa-hand-sparkles"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold gold-text mb-3">Маникюр</h3>
+                        <p class="text-gray-300 mb-4">Классический, аппаратный, комбинированный маникюр с использованием профессиональных материалов.</p>
+                        <a href="tel:+79780917717" class="gold-bg hover:bg-yellow-600 text-black font-bold py-2 px-6 rounded-full text-sm inline-flex items-center">
+                            Записаться <i class="fas fa-chevron-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Pedicure Service -->
+                <div class="service-card bg-gray-900 rounded-lg overflow-hidden border gold-border transition duration-300">
+                    <div class="p-6">
+                        <div class="gold-text text-4xl mb-4">
+                            <i class="fas fa-socks"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold gold-text mb-3">Педикюр</h3>
+                        <p class="text-gray-300 mb-4">Гигиенический и эстетический уход за стопами. Вернем красоту и здоровье вашим ножкам.</p>
+                        <a href="tel:+79780917717" class="gold-bg hover:bg-yellow-600 text-black font-bold py-2 px-6 rounded-full text-sm inline-flex items-center">
+                            Записаться <i class="fas fa-chevron-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Cosmetics Section -->
+    <section id="cosmetics" class="py-16 px-4 bg-black/70">
+        <div class="container mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold gold-text text-center mb-12">Профессиональная косметика</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Shampoo -->
+                <div class="bg-gray-900/80 rounded-lg p-6 border gold-border">
+                    <div class="gold-text text-3xl mb-3">
+                        <i class="fas fa-pump-soap"></i>
+                    </div>
+                    <h3 class="text-xl font-bold gold-text mb-2">Шампуни</h3>
+                    <p class="text-gray-300 mb-3">Профессиональные шампуни для всех типов волос по ценам ниже рыночных.</p>
+                    <a href="tel:+79780917717" class="text-sm gold-text hover:underline inline-flex items-center">
+                        Заказать <i class="fas fa-chevron-right ml-1"></i>
+                    </a>
+                </div>
+                
+                <!-- Conditioner -->
+                <div class="bg-gray-900/80 rounded-lg p-6 border gold-border">
+                    <div class="gold-text text-3xl mb-3">
+                        <i class="fas fa-air-freshener"></i>
+                    </div>
+                    <h3 class="text-xl font-bold gold-text mb-2">Бальзамы</h3>
+                    <p class="text-gray-300 mb-3">Восстанавливающие и увлажняющие бальзамы для идеального ухода.</p>
+                    <a href="tel:+79780917717" class="text-sm gold-text hover:underline inline-flex items-center">
+                        Заказать <i class="fas fa-chevron-right ml-1"></i>
+                    </a>
+                </div>
+                
+                <!-- Hair Color -->
+                <div class="bg-gray-900/80 rounded-lg p-6 border gold-border">
+                    <div class="gold-text text-3xl mb-3">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3 class="text-xl font-bold gold-text mb-2">Краски</h3>
+                    <p class="text-gray-300 mb-3">Широкая палитра профессиональных красок для волос премиум-класса.</p>
+                    <a href="tel:+79780917717" class="text-sm gold-text hover:underline inline-flex items-center">
+                        Заказать <i class="fas fa-chevron-right ml-1"></i>
+                    </a>
+                </div>
+                
+                <!-- Other -->
+                <div class="bg-gray-900/80 rounded-lg p-6 border gold-border">
+                    <div class="gold-text text-3xl mb-3">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <h3 class="text-xl font-bold gold-text mb-2">Уходовые средства</h3>
+                    <p class="text-gray-300 mb-3">Маски, сыворотки, масла и другие профессиональные средства для волос.</p>
+                    <a href="tel:+79780917717" class="text-sm gold-text hover:underline inline-flex items-center">
+                        Заказать <i class="fas fa-chevron-right ml-1"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <p class="text-xl gold-text mb-6">Все виды профессиональной косметики для волос по выгодным ценам!</p>
+                <a href="tel:+79780917717" class="gold-bg hover:bg-yellow-600 text-black font-bold py-3 px-8 rounded-full inline-flex items-center">
+                    <i class="fas fa-shopping-cart mr-2"></i> Заказать косметику
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="py-16 px-4 bg-black/50">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <h2 class="text-3xl md:text-4xl font-bold gold-text mb-6">О нашем салоне</h2>
+                    <p class="text-gray-300 mb-4">Салон красоты "Зеркало" - это место, где каждая деталь создана для вашего комфорта и красоты. Мы сочетаем профессиональный подход с индивидуальным вниманием к каждому клиенту.</p>
+                    <p class="text-gray-300 mb-4">Наш парикмахер-универсал с многолетним опытом работы поможет вам создать идеальный образ, а мастера маникюра и педикюра позаботятся о красоте ваших рук и ног.</p>
+                    <p class="text-gray-300">Мы гордимся тем, что предлагаем профессиональную косметику для волос по ценам ниже рыночных, делая качественный уход доступным для каждого.</p>
+                </div>
+                <div class="md:w-1/2 relative">
+                    <div class="border-4 gold-border rounded-lg overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Салон красоты Зеркало" class="w-full h-auto">
+                    </div>
+                    <div class="absolute -bottom-4 -right-4 bg-black/90 border gold-border p-4 rounded-lg shadow-lg">
+                        <p class="gold-text font-bold"><i class="fas fa-award mr-2"></i> Профессионализм</p>
+                        <p class="gold-text font-bold"><i class="fas fa-heart mr-2"></i> Индивидуальный подход</p>
+                        <p class="gold-text font-bold"><i class="fas fa-tag mr-2"></i> Доступные цены</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contacts Section -->
+    <section id="contacts" class="py-16 px-4 bg-black/70">
+        <div class="container mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold gold-text text-center mb-12">Контакты</h2>
+            
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <div class="bg-gray-900/80 rounded-lg p-8 border gold-border">
+                        <h3 class="text-2xl font-bold gold-text mb-6">Как нас найти</h3>
+                        
+                        <div class="flex items-start mb-6">
+                            <div class="gold-text text-xl mr-4">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold gold-text">Адрес:</p>
+                                <p class="text-gray-300">г. Севастополь, ул. Колобова, 34/1</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start mb-6">
+                            <div class="gold-text text-xl mr-4">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold gold-text">Телефон:</p>
+                                <a href="tel:+79780917717" class="text-gray-300 hover:gold-text hover:underline">+7 (978) 091-77-17</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start mb-6">
+                            <div class="gold-text text-xl mr-4">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold gold-text">Часы работы:</p>
+                                <p class="text-gray-300">Пн-Пт: 9:00 - 20:00</p>
+                                <p class="text-gray-300">Сб-Вс: 10:00 - 18:00</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <a href="tel:+79780917717" class="gold-bg hover:bg-yellow-600 text-black font-bold py-3 px-8 rounded-full inline-flex items-center">
+                                <i class="fas fa-phone-alt mr-2"></i> Позвонить сейчас
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <div class="bg-gray-900/80 rounded-lg p-8 border gold-border h-full">
+                        <h3 class="text-2xl font-bold gold-text mb-6">Мы на карте</h3>
+                        <div class="aspect-w-16 aspect-h-9 bg-gray-800 rounded-lg overflow-hidden">
+                             <iframe src="https://yandex.ru/map-widget/v1/?ll=33.465957%2C44.584700&mode=poi&poi%5Bpoint%5D=33.465961%2C44.584727&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D1494495907&z=18" width="100%" height="500" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+</html>
